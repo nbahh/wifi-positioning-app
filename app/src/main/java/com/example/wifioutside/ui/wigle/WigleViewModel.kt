@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class WigleViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is wigle Fragment"
+        value = "WiGLE stuff here"
     }
     val text: LiveData<String> = _text
 }
