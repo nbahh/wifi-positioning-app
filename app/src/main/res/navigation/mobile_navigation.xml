@@ -12,6 +12,12 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_gps"
+        android:name="com.example.wifioutside.ui.gps.GpsFragment"
+        android:label="@string/gps_nav_text"
+        tools:layout="@layout/fragment_gps" />
+
+    <fragment
         android:id="@+id/navigation_network_wigle"
         android:name="com.example.wifioutside.ui.wigle.WigleFragment"
         android:label="@string/title_wigle_search"

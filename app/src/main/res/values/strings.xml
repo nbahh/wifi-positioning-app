@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">WifiOutside</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">WiFi Scanner</string>
     <string name="title_wigle_search">WiGLE Search</string>
     <string name="title_network_name_search">Network Name Search</string>
     <string name="scan_button_text">Scan</string>
     <string name="status_button_text">Status</string>
+    <string name="scan_results_text">Scan results:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gps_nav_text">GPS</string>
 </resources>

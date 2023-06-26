@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class NameViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is notifications Fragment"
+        value = "Localization by networks name will be here"
     }
     val text: LiveData<String> = _text
 }
