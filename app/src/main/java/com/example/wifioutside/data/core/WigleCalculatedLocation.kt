@@ -1,7 +1,6 @@
 package com.example.wifioutside.data.core
 
 import com.example.wifioutside.data.dto.WigleDto
-import com.fasterxml.jackson.annotation.JsonProperty
 
 class WigleCalculatedLocation(
     val trilat: Double,

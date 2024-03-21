@@ -8,7 +8,7 @@ class WigleClient {
     private val wigleApi = retrofit.create(WigleApi::class.java)
 
     fun getNetworkByBSSID(bssid: String) : WigleDto? {
-        val wigleResponse = wigleApi.getNetwork("EC:A8:1F:73:CE:A1")
+        val wigleResponse = wigleApi.getNetwork(bssid)
             .execute()
         if (!wigleResponse.isSuccessful) {
             Log.d("WARN", "[${this.javaClass.simpleName}] Unable to get network by BSSID, " +

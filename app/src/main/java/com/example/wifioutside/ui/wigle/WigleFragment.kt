@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.wifioutside.MainActivityViewModel
 import com.example.wifioutside.R
 import com.example.wifioutside.api.client.WigleClient
+import com.example.wifioutside.data.core.WigleCalculatedLocation
 import com.example.wifioutside.databinding.FragmentWigleBinding
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -42,9 +43,6 @@ class WigleFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var mMap: GoogleMap
 
-    // ----------------
-
-    private val MAPVIEW_BUNDLE_KEY: String = "MapViewBundleKey"
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -106,6 +104,7 @@ class WigleFragment : Fragment(), OnMapReadyCallback {
                     if (wigleResponse != null) {
                         latitudeValueText.text = wigleResponse.trilat.toString()
                         longitudeValueText.text = wigleResponse.trilong.toString()
+                        activityViewModel.updateWigleEstimation(WigleCalculatedLocation(wigleResponse))
                         addPointToMap(wigleResponse.trilat, wigleResponse.trilong)
                     } else {
                         latitudeValueText.text = "Not found!"
