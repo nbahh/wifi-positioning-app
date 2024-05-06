@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.wifioutside.MainActivityViewModel
@@ -29,6 +30,12 @@ import kotlin.math.sqrt
 class GpsFragment : Fragment() {
 
     private var _binding: FragmentGpsBinding? = null
+
+    private val REQUIRED_PERMISSIONS: Array<String> = arrayOf(
+        Manifest.permission.ACCESS_COARSE_LOCATION,
+        Manifest.permission.ACCESS_FINE_LOCATION,
+        Manifest.permission.ACCESS_WIFI_STATE,
+        Manifest.permission.ACCESS_NETWORK_STATE)
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -70,7 +77,17 @@ class GpsFragment : Fragment() {
         }
 
         calculateButton.setOnClickListener {
-            Log.d("DEBUG", "Does this work?")
+
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                val permission: Int = ContextCompat.checkSelfPermission(
+                    requireActivity(), Manifest.permission.ACCESS_COARSE_LOCATION)
+
+                if (permission != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(requireActivity(),
+                        REQUIRED_PERMISSIONS, 123)
+                }
+            }
+
             LocationServices.getFusedLocationProviderClient(requireActivity())
                 .lastLocation.addOnSuccessListener {
                         location : Location? -> location?.let {

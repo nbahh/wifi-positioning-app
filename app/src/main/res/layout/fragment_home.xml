@@ -4,18 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
     tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/text_wifi"
+        android:layout_width="170dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="80dp"
+        android:text="@string/title_home"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/scan_results_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.276" />
+
+    <TextView
+        android:id="@+id/scan_results_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/scan_results_text"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/wifi_scroll"
+        app:layout_constraintStart_toStartOf="@+id/wifi_scroll" />
 
     <ScrollView
         android:id="@+id/wifi_scroll"
-        android:layout_width="379dp"
+        android:layout_width="match_parent"
         android:layout_height="336dp"
         android:contentDescription="Captured Wifi Networks"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:id="@+id/wifi_list"
@@ -23,64 +46,30 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="114dp" />
+            tools:layout_editor_absoluteY="114dp">
+
+        </LinearLayout>
     </ScrollView>
-
-    <TextView
-        android:id="@+id/scan_results_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/scan_results_text"
-        app:layout_constraintBottom_toTopOf="@+id/wifi_scroll"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.863" />
-
-    <TextView
-        android:id="@+id/text_wifi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/title_home"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.044" />
 
     <Button
         android:id="@+id/scan_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
         android:text="@string/scan_button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/status_button"
-        app:layout_constraintHorizontal_bias="0.035"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wifi_scroll"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="@+id/wifi_scroll"
+        app:layout_constraintTop_toBottomOf="@+id/wifi_scroll" />
 
     <Button
         android:id="@+id/status_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="192dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="72dp"
         android:text="@string/status_button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wifi_scroll"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/wifi_scroll" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

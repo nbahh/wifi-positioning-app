@@ -23,9 +23,4 @@
         android:label="@string/title_wigle_search"
         tools:layout="@layout/fragment_wigle" />
 
-    <fragment
-        android:id="@+id/navigation_name_search"
-        android:name="com.example.wifioutside.ui.name.NameFragment"
-        android:label="@string/title_network_name_search"
-        tools:layout="@layout/fragment_name" />
 </navigation>

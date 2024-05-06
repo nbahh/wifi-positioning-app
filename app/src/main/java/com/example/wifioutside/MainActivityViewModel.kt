@@ -5,15 +5,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.wifioutside.data.core.GpsLocation
+import com.example.wifioutside.data.core.WifiScanResult
 import com.example.wifioutside.data.core.WigleCalculatedLocation
 
 class MainActivityViewModel : ViewModel() {
-    private val _wifiList = MutableLiveData<List<ScanResult>>()
+    private val _wifiList = MutableLiveData<List<WifiScanResult>>()
     private val _wigleEstimation = MutableLiveData<WigleCalculatedLocation>()
     private val _gpsLocation = MutableLiveData<GpsLocation>()
 
 
-    val wifiList: LiveData<List<ScanResult>>
+    val wifiList: LiveData<List<WifiScanResult>>
         get() = _wifiList
 
     val gpsLocation: LiveData<GpsLocation>
@@ -24,11 +25,11 @@ class MainActivityViewModel : ViewModel() {
         _gpsLocation.value = gpsLocation
     }
 
-    fun updateWifiList(wifis: MutableList<ScanResult>) {
+    fun updateWifiList(wifis: MutableList<WifiScanResult>) {
         _wifiList.value = wifis
     }
 
-    fun getStrongestWifiScanResult() : ScanResult? {
+    fun getStrongestWifiScanResult() : WifiScanResult? {
         return _wifiList.value?.maxWith(Comparator.comparing { it.level })
     }
 

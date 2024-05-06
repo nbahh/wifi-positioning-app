@@ -32,54 +32,42 @@
         app:layout_constraintTop_toBottomOf="@+id/text_wigle_title"
         app:layout_constraintVertical_bias="0.0" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="412dp"
-        android:layout_height="148dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/main_wigle_button"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginEnd="53dp"
+        android:layout_marginBottom="17dp"
+        android:text="Search"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/availability_text"
+        android:layout_width="335dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="37dp"
+        android:text="Avaibility Status:"
+        android:textAlignment="textStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.147">
+        app:layout_constraintTop_toBottomOf="@+id/text_wigle_descr" />
 
-        <Button
-            android:id="@+id/main_wigle_button"
-            android:layout_width="300dp"
-            android:layout_height="65dp"
-            android:text="Where am I?"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.517"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.807" />
-
-        <TextView
-            android:id="@+id/availability_text"
-            android:layout_width="300dp"
-            android:layout_height="20dp"
-            android:text="Avaibility Status:"
-            android:textAlignment="textStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.517"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.21" />
-
-        <TextView
-            android:id="@+id/availability_status_text"
-            android:layout_width="300dp"
-            android:layout_height="20dp"
-            android:text="PLACE_HOLDER_STATUS"
-            android:textAlignment="textStart"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.517"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.367" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="296dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_wigle_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/availability_text"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"

@@ -21,8 +21,11 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.wifioutside.DataLogger
 import com.example.wifioutside.MainActivity
+import com.example.wifioutside.data.core.WifiScanResult
 import com.example.wifioutside.databinding.FragmentHomeBinding
+import kotlin.streams.toList
 
 class HomeFragment : Fragment() {
 
@@ -90,7 +93,8 @@ class HomeFragment : Fragment() {
             for (wifiEntry in sortedList.reversed()) {
                 val networkSSID: String = wifiEntry.SSID
                 val button = Button(requireActivity())
-                button.text = networkSSID + "    " + wifiEntry.level + "dBm"
+                val freq  = wifiEntry.frequency
+                button.text = networkSSID + "    " + wifiEntry.level + "dBm" + "    " + freq + "hz"
                 wifiListView.addView(button)
                 button.setOnClickListener {
                     Log.d("DEBUG", "Clicked!")
@@ -111,9 +115,12 @@ class HomeFragment : Fragment() {
             Toast.makeText(requireActivity(), "No permissions", Toast.LENGTH_SHORT).show()
 
         } else {
-            val scanResult : List<ScanResult> = wifiManager.scanResults;
+            val scanResult : List<WifiScanResult> = wifiManager.scanResults.stream()
+                .map {result -> WifiScanResult(result.SSID, result.BSSID, result.frequency, result.level) }
+                .toList();
             binding.scanResultsText.text = "Scan results: ${scanResult.size}"
             (requireActivity() as MainActivity).model.updateWifiList(scanResult.toMutableList())
+            DataLogger.logWifiScan(wifiManager.scanResults)
         }
 
     }
@@ -127,10 +134,13 @@ class HomeFragment : Fragment() {
             Toast.makeText(requireActivity(), "No permissions", Toast.LENGTH_SHORT).show()
 
         } else {
-            val scanResult: List<ScanResult> = wifiManager.scanResults;
+            val scanResult: List<WifiScanResult> = wifiManager.scanResults.stream()
+                .map {result -> WifiScanResult(result.SSID, result.BSSID, result.frequency, result.level) }
+                .toList();
             binding.scanResultsText.text =
                 "Scan results: ${scanResult.size}"
             (requireActivity() as MainActivity).model.updateWifiList(scanResult.toMutableList())
+            DataLogger.logWifiScan(wifiManager.scanResults)
         }
     }
 
