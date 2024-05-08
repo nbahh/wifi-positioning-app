@@ -8,4 +8,5 @@
     <string name="scan_results_text">Scan results:</string>
     <string name="gps_nav_text">GPS</string>
     <string name="gps_title_text">Test accuracy against GPS</string>
+    <string name="manual">Manual</string>
 </resources>
