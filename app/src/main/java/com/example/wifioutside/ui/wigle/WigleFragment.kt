@@ -16,6 +16,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import com.example.wifioutside.DataLogger
 import com.example.wifioutside.MainActivityViewModel
 import com.example.wifioutside.R
 import com.example.wifioutside.api.client.WigleClient
@@ -133,9 +134,11 @@ class WigleFragment : Fragment(), OnMapReadyCallback {
                         longitudeValueText.text = wigleResponse.trilong.toString()
                         activityViewModel.updateWigleEstimation(WigleCalculatedLocation(wigleResponse))
                         addPointToMap(wigleResponse.trilat, wigleResponse.trilong)
+                        DataLogger.logWigle(requireContext(), selectedItem.SSID, WigleCalculatedLocation(wigleResponse))
                     } else {
                         latitudeValueText.text = "Not found!"
                         longitudeValueText.text = "Not found!"
+                        DataLogger.logWigle(requireContext(), selectedItem.SSID, null)
                     }
                 }
             }

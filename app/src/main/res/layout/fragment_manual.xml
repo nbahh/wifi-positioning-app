@@ -7,12 +7,211 @@
     tools:context=".ui.manual.ManualFragment">
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="104dp"
-        android:layout_height="43dp"
-        android:text="This view works"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/input_text"
+        android:layout_width="211dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="4dp"
+        android:text="Input Coordinates:"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="177dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="4dp"
+        android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:layout_width="387dp"
+        android:layout_height="319dp"
+        android:layout_marginStart="16dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/save_button"
+        app:layout_constraintVertical_bias="0.133">
+
+        <LinearLayout
+            android:id="@+id/gps_layout"
+            android:layout_width="354dp"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="224dp">
+
+            <TextView
+                android:id="@+id/text_gps"
+                android:layout_width="19dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="GPS:"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="224dp" />
+
+            <TextView
+                android:id="@+id/text_gps_value"
+                android:layout_width="247dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="something wrong"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="79dp"
+                tools:layout_editor_absoluteY="224dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gps_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="256dp">
+
+            <TextView
+                android:id="@+id/text_gps_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status:"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="256dp" />
+
+            <TextView
+                android:id="@+id/text_gps_status_value"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="87dp"
+                tools:layout_editor_absoluteY="256dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_gps_compare"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Compare"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="297dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="360dp" />
+
+        <LinearLayout
+            android:id="@+id/wigle_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="409dp">
+
+            <TextView
+                android:id="@+id/text_wigle"
+                android:layout_width="23dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="WiGLE:"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/text_wigle_value"
+                android:layout_width="239dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="something wrong"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/wigle_button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:orientation="horizontal"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="441dp">
+
+            <TextView
+                android:id="@+id/text_wigle_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Status:"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="441dp" />
+
+            <TextView
+                android:id="@+id/text_wigle_status_value"
+                android:layout_width="296dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="TextView"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="93dp"
+                tools:layout_editor_absoluteY="441dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_wigle"
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Compare"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="480dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="300dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="56dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/text_latitude"
+            android:layout_width="172dp"
+            android:layout_height="63dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="latitude"
+            android:inputType="number|numberDecimal|numberSigned"
+            tools:layout_editor_absoluteX="55dp"
+            tools:layout_editor_absoluteY="58dp" />
+
+        <EditText
+            android:id="@+id/text_longitude"
+            android:layout_width="172dp"
+            android:layout_height="63dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="longitude"
+            android:inputType="number|numberDecimal|numberSigned"
+            tools:layout_editor_absoluteX="197dp"
+            tools:layout_editor_absoluteY="57dp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

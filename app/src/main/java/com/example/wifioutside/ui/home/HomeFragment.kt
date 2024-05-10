@@ -120,7 +120,7 @@ class HomeFragment : Fragment() {
                 .toList();
             binding.scanResultsText.text = "Scan results: ${scanResult.size}"
             (requireActivity() as MainActivity).model.updateWifiList(scanResult.toMutableList())
-            DataLogger.logWifiScan(wifiManager.scanResults)
+            DataLogger.logWifiScan(requireContext(), wifiManager.scanResults)
         }
 
     }
@@ -140,7 +140,7 @@ class HomeFragment : Fragment() {
             binding.scanResultsText.text =
                 "Scan results: ${scanResult.size}"
             (requireActivity() as MainActivity).model.updateWifiList(scanResult.toMutableList())
-            DataLogger.logWifiScan(wifiManager.scanResults)
+            DataLogger.logWifiScan(requireContext(), wifiManager.scanResults)
         }
     }
 

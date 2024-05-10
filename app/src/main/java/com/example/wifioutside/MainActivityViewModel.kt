@@ -12,6 +12,7 @@ class MainActivityViewModel : ViewModel() {
     private val _wifiList = MutableLiveData<List<WifiScanResult>>()
     private val _wigleEstimation = MutableLiveData<WigleCalculatedLocation>()
     private val _gpsLocation = MutableLiveData<GpsLocation>()
+    private val _manualLocation = MutableLiveData<GpsLocation>()
 
 
     val wifiList: LiveData<List<WifiScanResult>>
@@ -19,6 +20,9 @@ class MainActivityViewModel : ViewModel() {
 
     val gpsLocation: LiveData<GpsLocation>
         get() = _gpsLocation
+
+    val manualLocation: LiveData<GpsLocation>
+        get() = _manualLocation
 
 
     fun updateGpsLocation(gpsLocation: GpsLocation) {
@@ -28,6 +32,11 @@ class MainActivityViewModel : ViewModel() {
     fun updateWifiList(wifis: MutableList<WifiScanResult>) {
         _wifiList.value = wifis
     }
+
+    fun updateManualLocation(manualLocation: GpsLocation) {
+        _manualLocation.value = manualLocation
+    }
+
 
     fun getStrongestWifiScanResult() : WifiScanResult? {
         return _wifiList.value?.maxWith(Comparator.comparing { it.level })

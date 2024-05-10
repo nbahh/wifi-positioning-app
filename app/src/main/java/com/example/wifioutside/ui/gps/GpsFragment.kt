@@ -17,6 +17,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.wifioutside.DataLogger
 import com.example.wifioutside.MainActivityViewModel
 import com.example.wifioutside.data.core.GpsLocation
 import com.example.wifioutside.databinding.FragmentGpsBinding
@@ -117,6 +118,7 @@ class GpsFragment : Fragment() {
                     results
                 )
                 accuracyValueText.text = "${results[0]} meters."
+                DataLogger.logGpsWigleAccuracy(requireContext(), gpsData, wigleData, results[0])
             }
         }
 

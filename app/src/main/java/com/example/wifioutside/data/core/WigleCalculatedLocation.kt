@@ -11,4 +11,8 @@ class WigleCalculatedLocation(
 ) {
     constructor(dto: WigleDto) : this(dto.trilat, dto.trilong, dto.ssid, dto.qos, dto.netid)
 
+    override fun toString(): String {
+        return "WigleCalculatedLocation(trilat=$trilat, trilong=$trilong, ssid='$ssid', qos=$qos, netid='$netid')"
+    }
+
 }
