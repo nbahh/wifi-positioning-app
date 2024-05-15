@@ -93,7 +93,6 @@ class GpsFragment : Fragment() {
                 .lastLocation.addOnSuccessListener {
                         location : Location? -> location?.let {
                     val gpsCoordinates = GpsLocation(location.latitude, location.longitude)
-                    Log.d("DEBUG", "The coordinates are ${gpsCoordinates.latitude} and ${gpsCoordinates.longitude}")
                     activityViewModel.updateGpsLocation(gpsCoordinates)
                     updateLocationValues(gpsCoordinates)
                         }
